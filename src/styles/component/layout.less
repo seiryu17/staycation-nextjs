@@ -1,0 +1,19 @@
+.ant-layout {
+  margin: auto;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1440px;
+  header {
+    z-index: 1;
+    &:extend(.ph-8);
+    border-bottom: 1px solid @neutral-30;
+  }
+
+  main {
+    &:extend(.ph-8);
+    &:extend(.bg-white);
+  }
+  footer {
+    &:extend(.bg-white);
+  }
+}
