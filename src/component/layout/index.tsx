@@ -35,7 +35,10 @@ const LayoutComponent = (props: Iprops) => {
           <Col>
             <Space size={"large"}>
               {MENU.map((x) => (
-                <Typography.Text className="text-size-16 text-color-primary-pressed text-weight-medium use-pointer">
+                <Typography.Text
+                  key={x.label}
+                  className="text-size-16 text-color-primary-pressed text-weight-medium use-pointer"
+                >
                   {x.label}
                 </Typography.Text>
               ))}
