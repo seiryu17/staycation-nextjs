@@ -64,12 +64,12 @@ each(@colors, {
 
 @font-weights: {
   regular: 400;
-  medium: 600;
+  medium: 500;
   semibold: 600;
   bold: 700;
 };
 
-@font-sizes: 9, 10, 12, 14, 16, 18, 21, 24, 40, 48, 60, 72;
+@font-sizes: 9, 10, 12, 14, 16, 18, 21, 24, 28, 34, 38, 40, 48, 60, 72;
 each(@font-sizes, {
   .text-size-@{value} {
     font-size: ~"@{value}px" !important;
@@ -220,4 +220,16 @@ each(@lines, {
 
 body {
   background: @neutral-30;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
 }

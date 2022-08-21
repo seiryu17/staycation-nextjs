@@ -5,6 +5,7 @@ import CardItemBig from "../src/component/home/card-item-big";
 import CardItemSmall from "../src/component/home/card-item-small";
 
 import Layout from "../src/component/layout";
+import Review from "../src/component/review";
 
 const Home: NextPage = () => {
   return (
@@ -161,6 +162,11 @@ const Home: NextPage = () => {
               ]}
               renderItem={(item) => <CardItemSmall img={item.img} />}
             />
+          </Col>
+        </Row>
+        <Row className="mv-8">
+          <Col>
+            <Review />
           </Col>
         </Row>
       </Row>
