@@ -20,7 +20,7 @@ const Home: NextPage = () => {
               </Typography.Text>
             </div>
             <div className="mt-3">
-              <Typography.Text className="text-size-18 text-weight-regular text-color-neutral-50 hero-text-2">
+              <Typography.Text className="text-size-18 text-weight-light text-color-neutral-50 hero-text-2">
                 We provide what you need to enjoy your <br /> holiday with
                 family. Time to make another <br /> memorable moments.
               </Typography.Text>
@@ -97,7 +97,9 @@ const Home: NextPage = () => {
                 { img: "/most-picked-2.png" },
                 { img: "/most-picked-2.png" },
               ]}
-              renderItem={(item) => <CardItemBig type={2} img={item.img} />}
+              renderItem={(item, index) => (
+                <CardItemBig key={index} type={2} img={item.img} />
+              )}
             />
           </Col>
         </Row>
@@ -118,7 +120,9 @@ const Home: NextPage = () => {
                 { img: "/most-picked-2.png" },
                 { img: "/most-picked-2.png" },
               ]}
-              renderItem={(item) => <CardItemSmall img={item.img} />}
+              renderItem={(item, index) => (
+                <CardItemSmall key={index} img={item.img} />
+              )}
             />
           </Col>
         </Row>
@@ -139,7 +143,9 @@ const Home: NextPage = () => {
                 { img: "/most-picked-2.png" },
                 { img: "/most-picked-2.png" },
               ]}
-              renderItem={(item) => <CardItemSmall img={item.img} />}
+              renderItem={(item, index) => (
+                <CardItemSmall key={index} img={item.img} />
+              )}
             />
           </Col>
         </Row>
@@ -160,7 +166,9 @@ const Home: NextPage = () => {
                 { img: "/most-picked-2.png" },
                 { img: "/most-picked-2.png" },
               ]}
-              renderItem={(item) => <CardItemSmall img={item.img} />}
+              renderItem={(item, index) => (
+                <CardItemSmall key={index} img={item.img} />
+              )}
             />
           </Col>
         </Row>

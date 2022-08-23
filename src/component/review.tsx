@@ -18,7 +18,7 @@ const Review = () => {
             <Rate value={5} disabled />
           </Col>
           <Col>
-            <Typography.Text className="text-size-34 text-weight-medium text-color-primary-pressed">
+            <Typography.Text className="text-size-34 text-color-primary-pressed">
               What a great trip with my family and I should try again next time
               soon ...
             </Typography.Text>

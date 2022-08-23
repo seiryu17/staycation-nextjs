@@ -1,4 +1,5 @@
 import { Layout, Typography, Row, Col, Space } from "antd";
+import Router from "next/router";
 import { SECTION_1, SECTION_2 } from "../../constant/footer";
 import MENU from "../../constant/menu";
 
@@ -14,16 +15,16 @@ const LayoutComponent = (props: Iprops) => {
     <Layout>
       <Header className="w-100 header bg-white">
         <Row justify="space-between">
-          <Col>
+          <Col className="use-pointer" onClick={() => Router.push("/")}>
             <Typography.Text className="text-color-primary-main text-weight-medium text-size-24">
               Stay<span className="text-color-primary-pressed">cation.</span>
             </Typography.Text>
           </Col>
           <Col>
             <Space size={"large"}>
-              {MENU.map((x) => (
+              {MENU.map((x, index) => (
                 <Typography.Text
-                  key={x.label}
+                  key={index}
                   className="text-size-16 text-color-primary-pressed text-weight-medium use-pointer"
                 >
                   {x.label}
@@ -41,7 +42,7 @@ const LayoutComponent = (props: Iprops) => {
               Stay<span className="text-color-primary-pressed">cation.</span>
             </Typography.Text>
             <div>
-              <Typography.Text className="text-color-neutral-50 text-size-16">
+              <Typography.Text className="text-color-neutral-50 text-size-16 text-weight-light">
                 We kaboom your beauty holiday <br></br> instantly and memorable.
               </Typography.Text>
             </div>
@@ -50,9 +51,9 @@ const LayoutComponent = (props: Iprops) => {
             <Typography.Text className="text-color-primary-pressed text-weight-medium text-size-18">
               For Beginners
             </Typography.Text>
-            {SECTION_1.map((x) => (
-              <div>
-                <Typography.Text className="text-color-neutral-50 text-size-16">
+            {SECTION_1.map((x, index) => (
+              <div key={index}>
+                <Typography.Text className="text-color-neutral-50 text-weight-light  text-size-16">
                   {x.label}
                 </Typography.Text>
               </div>
@@ -63,9 +64,9 @@ const LayoutComponent = (props: Iprops) => {
               Explore Us
             </Typography.Text>
 
-            {SECTION_2.map((x) => (
-              <div>
-                <Typography.Text className="text-color-neutral-50 text-size-16">
+            {SECTION_2.map((x, index) => (
+              <div key={index}>
+                <Typography.Text className="text-color-neutral-50 text-weight-light text-size-16">
                   {x.label}
                 </Typography.Text>
               </div>
@@ -76,17 +77,17 @@ const LayoutComponent = (props: Iprops) => {
               Connect Us
             </Typography.Text>
             <div>
-              <Typography.Text className="text-color-neutral-50 text-size-16">
+              <Typography.Text className="text-color-neutral-50 text-size-16 text-weight-light">
                 support@staycation.id
               </Typography.Text>
             </div>
             <div>
-              <Typography.Text className="text-color-neutral-50 text-size-16">
+              <Typography.Text className="text-color-neutral-50 text-size-16 text-weight-light">
                 021 - 2208 - 1996
               </Typography.Text>
             </div>
             <div>
-              <Typography.Text className="text-color-neutral-50 text-size-16">
+              <Typography.Text className="text-color-neutral-50 text-size-16 text-weight-light">
                 Staycation, Kemang, Jakarta
               </Typography.Text>
             </div>

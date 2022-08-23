@@ -5,6 +5,12 @@
 @import "./home.less";
 
 @padding-size: 8px;
+@media (prefers-color-scheme: dark) {
+  h1,
+  h2 {
+    color: white;
+  }
+}
 
 /*
  * color pallete
@@ -63,6 +69,7 @@ each(@colors, {
   });
 
 @font-weights: {
+  light: 200;
   regular: 400;
   medium: 500;
   semibold: 600;
@@ -220,6 +227,12 @@ each(@lines, {
 
 body {
   background: @neutral-30;
+  font-family: @font-family !important;
+}
+
+.ant-typography {
+  font-family: @font-family !important;
+  letter-spacing: -0.006em;
 }
 
 .text-center {
