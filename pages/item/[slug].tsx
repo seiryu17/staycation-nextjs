@@ -1,5 +1,6 @@
 import { Breadcrumb, Button, Col, List, Row, Typography } from "antd";
 import Image from "next/image";
+import Router from "next/router";
 import CardItemSmall from "../../src/component/home/card-item-small";
 import {
   IconBathtub,
@@ -308,6 +309,7 @@ const ItemDetail = () => {
               <Button
                 size="large"
                 className="bg-primary-main border-radius-6 w-100"
+                onClick={() => Router.push("/checkout")}
               >
                 <Typography.Text className="text-size-16 text-color-white">
                   Continue to Book

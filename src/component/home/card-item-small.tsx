@@ -1,5 +1,6 @@
 import { Typography } from "antd";
 import Image from "next/image";
+import Router from "next/router";
 
 interface IProps {
   img: string;
@@ -10,6 +11,7 @@ const CardItemSmall = (props: IProps) => {
   return (
     <div
       className={`card-item type-small border-radius-16 mt-3 use-pointer position-relative`}
+      onClick={() => Router.push("/item/2")}
     >
       <Image src={img} width={260} height={180} />
       <div className="position-absolute badge ph-3 bg-french-rose">

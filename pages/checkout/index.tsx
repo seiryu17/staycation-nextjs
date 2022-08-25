@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import LayoutComponent from "../../src/component/layout";
 import Image from "next/image";
+import Router from "next/router";
 
 const { Step } = Steps;
 
@@ -265,7 +266,26 @@ const CheckoutPage = () => {
               Yay! Completed
             </Typography.Text>
           </Col>
-          <Col></Col>
+          <Col className="text-center" span={24}>
+            <Image src="/success-order.png" width={360} height={330} />
+          </Col>
+          <Col className="text-center" span={24}>
+            <Typography.Text className="text-size-16 text-color-neutral-50">
+              We will inform you via email later{" "}
+              <div>once the transaction has been accepted</div>
+            </Typography.Text>
+          </Col>
+          <Col className="text-center" span={24}>
+            <Button
+              className="bg-primary-main ph-3 border-radius-6 mt-4"
+              size="large"
+              onClick={() => Router.push("/")}
+            >
+              <Typography.Text className="text-size-16 text-color-white">
+                Back to Home
+              </Typography.Text>
+            </Button>
+          </Col>
         </Row>
       )}
     </LayoutComponent>
