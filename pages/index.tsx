@@ -1,4 +1,5 @@
-import { Row, Col, Typography, Button, List } from "antd";
+import { Row, Col, Typography, Button, List, Space } from "antd";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 import type { NextPage } from "next";
 import Image from "next/image";
 import CardItemBig from "../src/component/home/card-item-big";
@@ -8,11 +9,17 @@ import Layout from "../src/component/layout";
 import Review from "../src/component/review";
 
 const Home: NextPage = () => {
+  const mq = useBreakpoint();
   return (
     <Layout>
-      <Row gutter={[24, 24]} justify="space-between">
-        <Row className="mt-8 w-100">
-          <Col span={12}>
+      <Row justify="space-between">
+        <Row
+          gutter={[16, 16]}
+          justify="center"
+          align="middle"
+          className={`${!mq.xs ? "mt-8" : "mt-3 ph-3"} w-100`}
+        >
+          <Col span={!mq.xs ? 12 : 24}>
             <div>
               <Typography.Text className="text-size-48 text-weight-bold text-color-primary-pressed hero-text-1">
                 Forget Busy Work, <br />
@@ -33,52 +40,54 @@ const Home: NextPage = () => {
                 Show Me Now
               </Button>
             </div>
-            <Row className="mt-8" gutter={40}>
-              <Col>
-                <Image src={"/icon-traveler.png"} width={24} height={24} />
-                <div>
-                  <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                    80.409
-                  </Typography.Text>
-                  <Typography.Text className="text-color-neutral-50">
-                    {" "}
-                    travelers
-                  </Typography.Text>
-                </div>
-              </Col>
-              <Col>
-                <Image src={"/icon-camera.png"} width={24} height={24} />
-                <div>
-                  <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                    862
-                  </Typography.Text>
-                  <Typography.Text className="text-color-neutral-50">
-                    {" "}
-                    treasure
-                  </Typography.Text>
-                </div>
-              </Col>
-              <Col>
-                <Image src={"/icon-location.png"} width={24} height={24} />
-                <div>
-                  <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                    1492
-                  </Typography.Text>
-                  <Typography.Text className="text-color-neutral-50">
-                    {" "}
-                    cities
-                  </Typography.Text>
-                </div>
-              </Col>
+            <Row className={`${mq.xs ? "mt-4" : "mt-8"}`}>
+              <Space size={40}>
+                <Col>
+                  <Image src={"/icon-traveler.png"} width={24} height={24} />
+                  <div>
+                    <Typography.Text className="text-color-primary-pressed text-weight-medium">
+                      80.409
+                    </Typography.Text>
+                    <Typography.Text className="text-color-neutral-50">
+                      {" "}
+                      travelers
+                    </Typography.Text>
+                  </div>
+                </Col>
+                <Col>
+                  <Image src={"/icon-camera.png"} width={24} height={24} />
+                  <div>
+                    <Typography.Text className="text-color-primary-pressed text-weight-medium">
+                      862
+                    </Typography.Text>
+                    <Typography.Text className="text-color-neutral-50">
+                      {" "}
+                      treasure
+                    </Typography.Text>
+                  </div>
+                </Col>
+                <Col>
+                  <Image src={"/icon-location.png"} width={24} height={24} />
+                  <div>
+                    <Typography.Text className="text-color-primary-pressed text-weight-medium">
+                      1492
+                    </Typography.Text>
+                    <Typography.Text className="text-color-neutral-50">
+                      {" "}
+                      cities
+                    </Typography.Text>
+                  </div>
+                </Col>
+              </Space>
             </Row>
           </Col>
-          <Col span={12}>
+          <Col className={`${mq.xs ? "mt-3" : ""}`} span={!mq.xs ? 12 : 24}>
             <div className="position-relative text-right">
               <Image src={"/hero-image.png"} width={560} height={450} />
             </div>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col span={24}>
             <Typography.Text className="text-color-primary-pressed text-size-21 text-weight-medium">
               Most Picked
@@ -176,7 +185,7 @@ const Home: NextPage = () => {
           <Col>
             <Review />
           </Col>
-        </Row>
+        </Row> */}
       </Row>
     </Layout>
   );
