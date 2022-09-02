@@ -17,20 +17,31 @@ const Home: NextPage = () => {
           gutter={[16, 16]}
           justify="center"
           align="middle"
-          className={`${!mq.xs ? "mt-8" : "mt-3 ph-3"} w-100`}
+          className={`${!mq.xs ? "mt-8" : "mt-3 ph-2"} w-100`}
         >
           <Col span={!mq.xs ? 12 : 24}>
             <div>
-              <Typography.Text className="text-size-48 text-weight-bold text-color-primary-pressed hero-text-1">
+              <Typography.Text
+                className={`text-size-${
+                  !mq.xs ? "48" : "40"
+                } text-weight-bold text-color-primary-pressed hero-text-1`}
+              >
                 Forget Busy Work, <br />
                 Start Next Vacation
               </Typography.Text>
             </div>
             <div className="mt-3">
-              <Typography.Text className="text-size-18 text-weight-light text-color-neutral-50 hero-text-2">
-                We provide what you need to enjoy your <br /> holiday with
-                family. Time to make another <br /> memorable moments.
-              </Typography.Text>
+              {!mq.xs ? (
+                <Typography.Text className="text-size-18 text-weight-light text-color-neutral-50 hero-text-2">
+                  We provide what you need to enjoy your <br /> holiday with
+                  family. Time to make another <br /> memorable moments.
+                </Typography.Text>
+              ) : (
+                <Typography.Text className="text-size-16 text-weight-light text-color-neutral-50 hero-text-2">
+                  We provide what you need to enjoy your holiday with family.{" "}
+                  <br /> Time to make another memorable moments.
+                </Typography.Text>
+              )}
             </div>
             <div className="mt-5">
               <Button
@@ -87,19 +98,19 @@ const Home: NextPage = () => {
             </div>
           </Col>
         </Row>
-        {/* <Row>
+        <Row>
           <Col span={24}>
             <Typography.Text className="text-color-primary-pressed text-size-21 text-weight-medium">
               Most Picked
             </Typography.Text>
           </Col>
-          <Col span={8}>
+          <Col className={`${!mq.xs ? "" : "mt-1"}`} span={!mq.xs ? 8 : 24}>
             <CardItemBig type={1} img={"/most-picked-1.png"} />
           </Col>
-          <Col span={16}>
+          <Col span={!mq.xs ? 16 : 24}>
             <List
               itemLayout="horizontal"
-              grid={{ column: 2 }}
+              grid={!mq.xs ? { column: 2 } : { column: 1 }}
               dataSource={[
                 { img: "/most-picked-2.png" },
                 { img: "/most-picked-2.png" },
@@ -112,7 +123,7 @@ const Home: NextPage = () => {
             />
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col span={24}>
             <Typography.Text className="text-color-primary-pressed text-size-21 text-weight-medium">
               Houses with Beauty Backyard
