@@ -1,4 +1,5 @@
 import { Typography } from "antd";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 import Image from "next/image";
 import Router from "next/router";
 
@@ -8,9 +9,12 @@ interface IProps {
 
 const CardItemSmall = (props: IProps) => {
   const { img } = props;
+  const mq = useBreakpoint();
   return (
     <div
-      className={`card-item type-small border-radius-16 mt-3 use-pointer position-relative`}
+      className={`card-item type-small border-radius-16 use-pointer position-relative ${
+        mq.xs ? "w-100 mt-1" : "mt-3"
+      }`}
       onClick={() => Router.push("/item/2")}
     >
       <Image src={img} width={260} height={180} />

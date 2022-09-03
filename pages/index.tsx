@@ -1,4 +1,4 @@
-import { Row, Col, Typography, Button, List, Space } from "antd";
+import { Row, Col, Typography, Button, List, Space, Carousel } from "antd";
 import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 import type { NextPage } from "next";
 import Image from "next/image";
@@ -14,10 +14,9 @@ const Home: NextPage = () => {
     <Layout>
       <Row justify="space-between">
         <Row
-          gutter={[16, 16]}
           justify="center"
           align="middle"
-          className={`${!mq.xs ? "mt-8" : "mt-3 ph-2"} w-100`}
+          className={`${!mq.xs ? "mt-8" : "mt-3"} w-100`}
         >
           <Col span={!mq.xs ? 12 : 24}>
             <div>
@@ -92,13 +91,13 @@ const Home: NextPage = () => {
               </Space>
             </Row>
           </Col>
-          <Col className={`${mq.xs ? "mt-3" : ""}`} span={!mq.xs ? 12 : 24}>
+          <Col className={`${mq.xs ? "mt-4" : ""}`} span={!mq.xs ? 12 : 24}>
             <div className="position-relative text-right">
               <Image src={"/hero-image.png"} width={560} height={450} />
             </div>
           </Col>
         </Row>
-        <Row>
+        <Row className="mt-2">
           <Col span={24}>
             <Typography.Text className="text-color-primary-pressed text-size-21 text-weight-medium">
               Most Picked
@@ -123,80 +122,119 @@ const Home: NextPage = () => {
             />
           </Col>
         </Row>
-        {/* <Row>
+        <Row className="mt-2">
           <Col span={24}>
             <Typography.Text className="text-color-primary-pressed text-size-21 text-weight-medium">
               Houses with Beauty Backyard
             </Typography.Text>
           </Col>
           <Col span={24}>
-            <List
-              itemLayout="horizontal"
-              grid={{ column: 4 }}
-              className="w-100"
-              dataSource={[
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-              ]}
-              renderItem={(item, index) => (
-                <CardItemSmall key={index} img={item.img} />
-              )}
-            />
+            {!mq.xs ? (
+              <List
+                itemLayout="horizontal"
+                grid={{ column: 4 }}
+                className="w-100"
+                dataSource={[
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                ]}
+                renderItem={(item, index) => (
+                  <CardItemSmall key={index} img={item.img} />
+                )}
+              />
+            ) : (
+              <Carousel autoplay>
+                {[
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                ].map((item, index) => (
+                  <CardItemSmall key={index} img={item.img} />
+                ))}
+              </Carousel>
+            )}
           </Col>
         </Row>
-        <Row>
+        <Row className="mt-2">
           <Col span={24}>
             <Typography.Text className="text-color-primary-pressed text-size-21 text-weight-medium">
               Hotels with Large Living Room
             </Typography.Text>
           </Col>
           <Col span={24}>
-            <List
-              itemLayout="horizontal"
-              grid={{ column: 4 }}
-              className="w-100"
-              dataSource={[
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-              ]}
-              renderItem={(item, index) => (
-                <CardItemSmall key={index} img={item.img} />
-              )}
-            />
+            {!mq.xs ? (
+              <List
+                itemLayout="horizontal"
+                grid={{ column: 4 }}
+                className="w-100"
+                dataSource={[
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                ]}
+                renderItem={(item, index) => (
+                  <CardItemSmall key={index} img={item.img} />
+                )}
+              />
+            ) : (
+              <Carousel autoplay>
+                {[
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                ].map((item, index) => (
+                  <CardItemSmall key={index} img={item.img} />
+                ))}
+              </Carousel>
+            )}
           </Col>
         </Row>
-        <Row>
+        <Row className="mt-2">
           <Col span={24}>
             <Typography.Text className="text-color-primary-pressed text-size-21 text-weight-medium">
               Apartments with Kitchen Set
             </Typography.Text>
           </Col>
           <Col span={24}>
-            <List
-              itemLayout="horizontal"
-              grid={{ column: 4 }}
-              className="w-100"
-              dataSource={[
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-              ]}
-              renderItem={(item, index) => (
-                <CardItemSmall key={index} img={item.img} />
-              )}
-            />
+            {!mq.xs ? (
+              <List
+                itemLayout="horizontal"
+                grid={{ column: 4 }}
+                className="w-100"
+                dataSource={[
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                ]}
+                renderItem={(item, index) => (
+                  <CardItemSmall key={index} img={item.img} />
+                )}
+              />
+            ) : (
+              <Carousel autoplay>
+                {[
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                  { img: "/most-picked-2.png" },
+                ].map((item, index) => (
+                  <CardItemSmall key={index} img={item.img} />
+                ))}
+              </Carousel>
+            )}
           </Col>
         </Row>
         <Row className="mv-8">
           <Col>
             <Review />
           </Col>
-        </Row> */}
+        </Row>
       </Row>
     </Layout>
   );
