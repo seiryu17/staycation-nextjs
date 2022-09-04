@@ -14,12 +14,15 @@ import { useState } from "react";
 import LayoutComponent from "../../src/component/layout";
 import Image from "next/image";
 import Router from "next/router";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 
 const { Step } = Steps;
 
 const CheckoutPage = () => {
   const [current, setCurrent] = useState(0);
   const [form] = Form.useForm();
+
+  const mq = useBreakpoint();
 
   const uploadprops: UploadProps = {
     action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
@@ -32,9 +35,13 @@ const CheckoutPage = () => {
   return (
     <LayoutComponent footer={false} onlyLogo={true}>
       <Row justify="center" className="mt-8">
-        <Steps current={current}>
+        <Steps style={{ flexDirection: "row" }} current={current}>
           {[1, 2, 3].map((item) => (
-            <Step key={item} />
+            <Step
+              className="display-flex"
+              style={{ justifyContent: "center" }}
+              key={item}
+            />
           ))}
         </Steps>
       </Row>

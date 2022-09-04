@@ -1,4 +1,5 @@
-import { Breadcrumb, Button, Col, List, Row, Typography } from "antd";
+import { Breadcrumb, Button, Carousel, Col, List, Row, Typography } from "antd";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 import Image from "next/image";
 import Router from "next/router";
 import CardItemSmall from "../../src/component/home/card-item-small";
@@ -12,6 +13,7 @@ import LayoutComponent from "../../src/component/layout";
 import Review from "../../src/component/review";
 
 const ItemDetail = () => {
+  const mq = useBreakpoint();
   return (
     <LayoutComponent>
       <Row className="mt-5">
@@ -74,7 +76,7 @@ const ItemDetail = () => {
         </Col>
       </Row>
       <Row className="mt-6" gutter={[16, 16]}>
-        <Col span={12}>
+        <Col span={!mq.xs ? 12 : 24}>
           <Row gutter={[16, 16]}>
             <Col>
               <Typography.Text className="text-color-primary-pressed text-size-24 text-weight-medium">
@@ -118,7 +120,7 @@ const ItemDetail = () => {
                   <Image src={"/icon-bedroom.png"} width={38} height={38} />
                   <div>
                     <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                      5{" "}
+                      5 {mq.xs && <br></br>}
                     </Typography.Text>
                     <Typography.Text className="text-color-neutral-50">
                       bedroom
@@ -129,7 +131,7 @@ const ItemDetail = () => {
                   <Image src={"/icon-livingroom.png"} width={38} height={38} />
                   <div>
                     <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                      1{" "}
+                      1 {mq.xs && <br></br>}
                     </Typography.Text>
                     <Typography.Text className="text-color-neutral-50">
                       living room
@@ -140,7 +142,7 @@ const ItemDetail = () => {
                   <Image src={"/icon-bathtub.png"} width={38} height={38} />
                   <div>
                     <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                      3{" "}
+                      3 {mq.xs && <br></br>}
                     </Typography.Text>
                     <Typography.Text className="text-color-neutral-50">
                       bathroom
@@ -151,7 +153,7 @@ const ItemDetail = () => {
                   <Image src={"/icon-diningroom.png"} width={38} height={38} />
                   <div>
                     <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                      1{" "}
+                      1 {mq.xs && <br></br>}
                     </Typography.Text>
                     <Typography.Text className="text-color-neutral-50">
                       dining room
@@ -164,7 +166,7 @@ const ItemDetail = () => {
                   <Image src={"/icon-wifi.png"} width={38} height={38} />
                   <div>
                     <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                      10{" "}
+                      10 {mq.xs && <br></br>}
                     </Typography.Text>
                     <Typography.Text className="text-color-neutral-50">
                       mbp/s
@@ -175,7 +177,7 @@ const ItemDetail = () => {
                   <Image src={"/icon-ac.png"} width={38} height={38} />
                   <div>
                     <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                      7{" "}
+                      7 {mq.xs && <br></br>}
                     </Typography.Text>
                     <Typography.Text className="text-color-neutral-50">
                       unit ready
@@ -186,7 +188,7 @@ const ItemDetail = () => {
                   <Image src={"/icon-refrigrator.png"} width={38} height={38} />
                   <div>
                     <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                      2{" "}
+                      2 {mq.xs && <br></br>}
                     </Typography.Text>
                     <Typography.Text className="text-color-neutral-50">
                       refrigrator
@@ -197,7 +199,7 @@ const ItemDetail = () => {
                   <Image src={"/icon-tv.png"} width={38} height={38} />
                   <div>
                     <Typography.Text className="text-color-primary-pressed text-weight-medium">
-                      4{" "}
+                      4 {mq.xs && <br></br>}
                     </Typography.Text>
                     <Typography.Text className="text-color-neutral-50">
                       television
@@ -209,8 +211,10 @@ const ItemDetail = () => {
           </Row>
         </Col>
         <Col
-          className="booking-section border-radius-10 border-neutral-40 ph-17 pv-8"
-          span={12}
+          className={`booking-section border-radius-10 border-neutral-40 ${
+            !mq.xs ? "ph-17 pv-8" : "ph-2 pv-6 mt-4"
+          }`}
+          span={!mq.xs ? 12 : 24}
         >
           <Row gutter={[16, 16]}>
             <Col span={24}>
@@ -324,22 +328,35 @@ const ItemDetail = () => {
           </Typography.Text>
         </Col>
         <Col span={24}>
-          <List
-            itemLayout="horizontal"
-            grid={{ column: 4 }}
-            className="w-100"
-            dataSource={[
-              { img: "/most-picked-2.png" },
-              { img: "/most-picked-2.png" },
-              { img: "/most-picked-2.png" },
-              { img: "/most-picked-2.png" },
-            ]}
-            renderItem={(item, index) => (
-              <CardItemSmall key={index} img={item.img} />
-            )}
-          />
+          {!mq.xs ? (
+            <List
+              itemLayout="horizontal"
+              grid={{ column: 4 }}
+              className="w-100"
+              dataSource={[
+                { img: "/most-picked-2.png" },
+                { img: "/most-picked-2.png" },
+                { img: "/most-picked-2.png" },
+                { img: "/most-picked-2.png" },
+              ]}
+              renderItem={(item, index) => (
+                <CardItemSmall key={index} img={item.img} />
+              )}
+            />
+          ) : (
+            <Carousel autoplay>
+              {[
+                { img: "/most-picked-2.png" },
+                { img: "/most-picked-2.png" },
+                { img: "/most-picked-2.png" },
+                { img: "/most-picked-2.png" },
+              ].map((item, index) => (
+                <CardItemSmall key={index} img={item.img} />
+              ))}
+            </Carousel>
+          )}
         </Col>
-        <Col className="mv-8">
+        <Col className={`${!mq.xs ? "mv-8" : "mv-4"} `}>
           <Review />
         </Col>
       </Row>
