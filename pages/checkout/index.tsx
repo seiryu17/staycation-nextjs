@@ -38,8 +38,7 @@ const CheckoutPage = () => {
         <Steps style={{ flexDirection: "row" }} current={current}>
           {[1, 2, 3].map((item) => (
             <Step
-              className="display-flex"
-              style={{ justifyContent: "center" }}
+              style={ mq.xs ? { justifyContent: "center", display:'flex' } : {}}
               key={item}
             />
           ))}
@@ -59,8 +58,8 @@ const CheckoutPage = () => {
               </Typography.Text>
             </Col>
           </Row>
-          <Row className="mt-4">
-            <Col span={11}>
+          <Row gutter={!mq.xs ? undefined : [16,16]} className="mt-4">
+            <Col span={!mq.xs ? 11 : 24}>
               <Row justify="end" gutter={[0, 16]}>
                 <Col
                   className="position-relative"
@@ -95,10 +94,10 @@ const CheckoutPage = () => {
                 </Col>
               </Row>
             </Col>
-            <Col className="text-center" span={2}>
+            <Col style={mq.xs ? {display:'none'} : {}} className="text-center" span={2}>
               <Divider type="vertical" style={{ height: "100%" }} />
             </Col>
-            <Col span={11}>
+            <Col span={!mq.xs ? 11 : 24}>
               <Form
                 onFinish={(val) => setCurrent(1)}
                 form={form}
@@ -119,7 +118,7 @@ const CheckoutPage = () => {
                 </Form.Item>
               </Form>
             </Col>
-            <Col span={24} className="text-center mt-4">
+          <Col span={24} className={`text-center ${!mq.xs ? "mt-4" : ""}`}>
               <Button
                 size="large"
                 className="bg-primary-main border-radius-6 ph-4"
@@ -160,8 +159,8 @@ const CheckoutPage = () => {
             </Col>
           </Row>
           <Row className="mt-4">
-            <Col span={11}>
-              <Row className="pl-17" justify="center" gutter={[16, 16]}>
+            <Col span={!mq.xs ? 11 : 24}>
+              <Row className={`${!mq.xs ? 'pl-17' : 'ph-2'}`} justify="center" gutter={[16, 16]}>
                 <Col span={24}>
                   <Typography.Text className="text-color-primary-pressed text-size-16">
                     Transfer Pembayaran:
@@ -223,7 +222,7 @@ const CheckoutPage = () => {
             <Col className="text-center" span={2}>
               <Divider type="vertical" style={{ height: "100%" }} />
             </Col>
-            <Col span={11}>
+            <Col span={!mq.xs ? 11 : 24}>
               <Form
                 onFinish={(val) => setCurrent(2)}
                 form={form}

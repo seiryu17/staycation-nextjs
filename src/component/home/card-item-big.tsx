@@ -14,7 +14,7 @@ const CardItemBig = (props: IProps) => {
   return (
     <div
       className={`card-item type-${type} border-radius-16 position-relative use-pointer ${
-        mq.xs ? "mb-2" : "mt-3"
+        mq.xs ? "mb-2 w-100" : "mt-3"
       }`}
       onClick={() => Router.push("/item/2")}
     >
