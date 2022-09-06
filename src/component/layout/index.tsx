@@ -24,7 +24,7 @@ const LayoutComponent = (props: Iprops) => {
         className={`${!isVisibleMenu ? "visible" : "hidden"}`}
         onClick={() => isVisibleMenu && setIsVisibleMenu(false)}
       >
-        <Header className="w-100 header bg-white position-fixed">
+        <Header style={{maxWidth: 1440}} className="w-100 header bg-white position-fixed">
           <Row justify={`${onlyLogo ? "center" : "space-between"}`}>
             <Col className="use-pointer" onClick={() => Router.push("/")}>
               <Typography.Text className="text-color-primary-main text-weight-medium text-size-24">

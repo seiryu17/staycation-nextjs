@@ -7,6 +7,12 @@ import CardItemSmall from "../src/component/home/card-item-small";
 
 import Layout from "../src/component/layout";
 import Review from "../src/component/review";
+import {
+  BEAUTY_BACKYARD,
+  KITCHEN,
+  LARGE_LIVING,
+  MOST_PICKED,
+} from "../src/constant/dummy/home";
 
 const Home: NextPage = () => {
   const mq = useBreakpoint();
@@ -104,21 +110,19 @@ const Home: NextPage = () => {
             </Typography.Text>
           </Col>
           <Col className={`${!mq.xs ? "" : "mt-1"}`} span={!mq.xs ? 8 : 24}>
-            <CardItemBig type={1} img={"/most-picked-1.png"} />
+            <CardItemBig
+              type={1}
+              data={MOST_PICKED.filter((x, index) => index === 0)[0]}
+            />
           </Col>
           <Col span={!mq.xs ? 16 : 24}>
             <List
               itemLayout="horizontal"
               grid={!mq.xs ? { column: 2 } : { column: 1 }}
-              dataSource={[
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-              ]}
-              renderItem={(item, index) => (
-                <CardItemBig key={index} type={2} img={item.img} />
-              )}
+              dataSource={MOST_PICKED.filter((x, index) => index > 0)}
+              renderItem={(item, index) => {
+                return <CardItemBig key={index} type={2} data={item} />;
+              }}
             />
           </Col>
         </Row>
@@ -134,25 +138,15 @@ const Home: NextPage = () => {
                 itemLayout="horizontal"
                 grid={{ column: 4 }}
                 className="w-100"
-                dataSource={[
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                ]}
+                dataSource={BEAUTY_BACKYARD}
                 renderItem={(item, index) => (
-                  <CardItemSmall key={index} img={item.img} />
+                  <CardItemSmall key={index} data={item} />
                 )}
               />
             ) : (
               <Carousel autoplay>
-                {[
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                ].map((item, index) => (
-                  <CardItemSmall key={index} img={item.img} />
+                {BEAUTY_BACKYARD.map((item, index) => (
+                  <CardItemSmall key={index} data={item} />
                 ))}
               </Carousel>
             )}
@@ -170,25 +164,15 @@ const Home: NextPage = () => {
                 itemLayout="horizontal"
                 grid={{ column: 4 }}
                 className="w-100"
-                dataSource={[
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                ]}
+                dataSource={LARGE_LIVING}
                 renderItem={(item, index) => (
-                  <CardItemSmall key={index} img={item.img} />
+                  <CardItemSmall key={index} data={item} />
                 )}
               />
             ) : (
               <Carousel autoplay>
-                {[
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                ].map((item, index) => (
-                  <CardItemSmall key={index} img={item.img} />
+                {LARGE_LIVING.map((item, index) => (
+                  <CardItemSmall key={index} data={item} />
                 ))}
               </Carousel>
             )}
@@ -206,25 +190,15 @@ const Home: NextPage = () => {
                 itemLayout="horizontal"
                 grid={{ column: 4 }}
                 className="w-100"
-                dataSource={[
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                ]}
+                dataSource={KITCHEN}
                 renderItem={(item, index) => (
-                  <CardItemSmall key={index} img={item.img} />
+                  <CardItemSmall key={index} data={item} />
                 )}
               />
             ) : (
               <Carousel autoplay>
-                {[
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                  { img: "/most-picked-2.png" },
-                ].map((item, index) => (
-                  <CardItemSmall key={index} img={item.img} />
+                {KITCHEN.map((item, index) => (
+                  <CardItemSmall key={index} data={item} />
                 ))}
               </Carousel>
             )}

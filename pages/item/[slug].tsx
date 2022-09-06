@@ -1,18 +1,26 @@
-import { Breadcrumb, Button, Carousel, Col, List, Row, Typography } from "antd";
+import {
+  Breadcrumb,
+  Button,
+  Carousel,
+  Col,
+  DatePicker,
+  List,
+  Row,
+  Typography,
+} from "antd";
 import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 import Image from "next/image";
 import Router from "next/router";
+import { useState } from "react";
 import CardItemSmall from "../../src/component/home/card-item-small";
-import {
-  IconBathtub,
-  IconBedroom,
-  IconDiningroom,
-  IconLivingroom,
-} from "../../src/component/icons";
 import LayoutComponent from "../../src/component/layout";
 import Review from "../../src/component/review";
+import { TREASURE } from "../../src/constant/dummy/home";
+
+const { RangePicker } = DatePicker;
 
 const ItemDetail = () => {
+  const [totalNight, setTotalNight] = useState(0);
   const mq = useBreakpoint();
   return (
     <LayoutComponent>
@@ -56,7 +64,7 @@ const ItemDetail = () => {
               span={24}
             >
               <Image
-                src={"/item-detail-1.png"}
+                src={"/item-detail-2.png"}
                 layout="fill"
                 objectFit="cover"
               />
@@ -67,7 +75,7 @@ const ItemDetail = () => {
               span={24}
             >
               <Image
-                src={"/item-detail-1.png"}
+                src={"/item-detail-3.png"}
                 layout="fill"
                 objectFit="cover"
               />
@@ -238,7 +246,12 @@ const ItemDetail = () => {
             <Col span={24}>
               <Row>
                 <Col>
-                  <div className="bg-danger-main ph-2 border-radius-4 use-pointer">
+                  <div
+                    className="bg-danger-main ph-2 border-radius-4 use-pointer"
+                    onClick={() =>
+                      totalNight > 0 && setTotalNight(totalNight - 1)
+                    }
+                  >
                     <Typography.Text className="text-size-28 text-weight-medium text-color-white">
                       -
                     </Typography.Text>
@@ -258,12 +271,15 @@ const ItemDetail = () => {
                     className="display-flex bg-neutral-30 ph-2 border-radius-4"
                   >
                     <Typography.Text className="text-size-16 text-color-primary-pressed">
-                      2 nights
+                      {totalNight} nights
                     </Typography.Text>
                   </div>
                 </Col>
                 <Col>
-                  <div className="bg-success-main ph-2 border-radius-4 use-pointer">
+                  <div
+                    className="bg-success-main ph-2 border-radius-4 use-pointer"
+                    onClick={() => setTotalNight(totalNight + 1)}
+                  >
                     <Typography.Text className="text-size-28 text-weight-medium text-color-white">
                       +
                     </Typography.Text>
@@ -284,18 +300,7 @@ const ItemDetail = () => {
                   </div>
                 </Col>
                 <Col className="display-flex" style={{ flex: "1 1" }}>
-                  <div
-                    style={{
-                      alignItems: "center",
-                      flex: "1 1",
-                      justifyContent: "center",
-                    }}
-                    className="display-flex bg-neutral-30 ph-2 border-radius-4"
-                  >
-                    <Typography.Text className="text-size-16 text-color-primary-pressed">
-                      20 Jan - 22 Jan
-                    </Typography.Text>
-                  </div>
+                  <RangePicker />
                 </Col>
               </Row>
             </Col>
@@ -333,25 +338,15 @@ const ItemDetail = () => {
               itemLayout="horizontal"
               grid={{ column: 4 }}
               className="w-100"
-              dataSource={[
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-              ]}
+              dataSource={TREASURE}
               renderItem={(item, index) => (
-                <CardItemSmall key={index} img={item.img} />
+                <CardItemSmall key={index} data={item} />
               )}
             />
           ) : (
             <Carousel autoplay>
-              {[
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-                { img: "/most-picked-2.png" },
-              ].map((item, index) => (
-                <CardItemSmall key={index} img={item.img} />
+              {TREASURE.map((item, index) => (
+                <CardItemSmall key={index} data={item} />
               ))}
             </Carousel>
           )}
