@@ -16,10 +16,15 @@ import CardItemSmall from "../../src/component/home/card-item-small";
 import LayoutComponent from "../../src/component/layout";
 import Review from "../../src/component/review";
 import { TREASURE } from "../../src/constant/dummy/home";
+import IItem from "../../src/constant/model/item";
 
 const { RangePicker } = DatePicker;
 
-const ItemDetail = () => {
+interface IProps {
+  data: IItem;
+}
+
+const ItemDetail = (props: IProps) => {
   const [totalNight, setTotalNight] = useState(0);
   const mq = useBreakpoint();
   return (

@@ -4,5 +4,6 @@ interface IItem {
   img: string;
   place: string;
   isPopular?: boolean;
+  id: number;
 }
 export default IItem;
